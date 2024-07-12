@@ -1,5 +1,5 @@
 app_name = "emfresh_erp"
-app_title = "Em Fresh ERP"
+app_title = "Em Fresh ERP "
 app_publisher = "Nghiem Nguyen"
 app_description = "Enterprise Resource Planning for Em Fresh "
 app_email = "huannghiem2711@gmail.com"
