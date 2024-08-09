@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-31 22:22:26.891574",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "meal_box",
+  "date"
+ ],
+ "fields": [
+  {
+   "fieldname": "meal_box",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Meal Box",
+   "options": "EFE Meal Box",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Day",
+   "options": "EFE Week Day",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-08 14:55:22.853061",
+ "modified_by": "Administrator",
+ "module": "Em Fresh ERP",
+ "name": "EFE Menu Meal Box",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

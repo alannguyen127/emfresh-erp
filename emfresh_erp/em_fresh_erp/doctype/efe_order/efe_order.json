@@ -1,0 +1,144 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-13 01:00:29.142212",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "column_break_phws",
+  "customer_full_name",
+  "order_date",
+  "total_amount",
+  "order_status",
+  "order_note",
+  "order_meal_package",
+  "order_extra_item",
+  "payment_status",
+  "delivery_address",
+  "additional_delivery_address",
+  "meal_box_selection"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_phws",
+   "fieldtype": "Column Break",
+   "options": "EFE "
+  },
+  {
+   "fieldname": "customer_full_name",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer Full Name",
+   "options": "EFE Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "order_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Order Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Total Amount",
+   "precision": "0",
+   "reqd": 1
+  },
+  {
+   "fieldname": "order_status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Order Status",
+   "options": "Ordered\nOrdered but not comfirm meals\nPostpone\nStop\nUnclear",
+   "reqd": 1
+  },
+  {
+   "fieldname": "order_note",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Order Note"
+  },
+  {
+   "fieldname": "order_meal_package",
+   "fieldtype": "Table",
+   "label": "Order Meal Package",
+   "options": "EFE Order Meal Package",
+   "reqd": 1
+  },
+  {
+   "fieldname": "order_extra_item",
+   "fieldtype": "Table",
+   "label": "Order Extra Item",
+   "options": "EFE Order Extra Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Payment Status",
+   "options": "Paid\nNot yet\nDeffered Payment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "delivery_address",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Delivery Address",
+   "options": "EFE Delivery Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "additional_delivery_address",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Additional Delivery Address",
+   "options": "EFE Delivery Address"
+  },
+  {
+   "fieldname": "meal_box_selection",
+   "fieldtype": "Table",
+   "label": "Meal Box Selection",
+   "options": "EFE Meal Box Selection"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-09 01:39:03.276956",
+ "modified_by": "Administrator",
+ "module": "Em Fresh ERP",
+ "name": "EFE Order",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "customer_full_name"
+}
