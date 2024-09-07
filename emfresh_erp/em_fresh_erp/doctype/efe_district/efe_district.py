@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class EFEMealBoxSelection(Document):
+class EFEDistrict(Document):
 	pass

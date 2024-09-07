@@ -1,53 +1,48 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-08-08 17:36:25.393311",
+ "creation": "2024-08-28 14:56:01.422329",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "week_menu",
-  "date",
-  "section_break_vcle",
-  "menu"
+  "meal_package",
+  "title",
+  "price"
  ],
  "fields": [
   {
-   "fieldname": "date",
-   "fieldtype": "Date",
+   "fieldname": "meal_package",
+   "fieldtype": "Link",
    "in_filter": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Date",
+   "label": "Meal Package",
+   "options": "EFE Meal Package",
    "reqd": 1
   },
   {
-   "fieldname": "week_menu",
-   "fieldtype": "Link",
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "in_filter": 1,
    "in_list_view": 1,
-   "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Week Menu",
-   "options": "EFE Week Menu",
+   "label": "Price",
+   "precision": "0",
    "reqd": 1
   },
   {
-   "fieldname": "section_break_vcle",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "menu",
-   "fieldtype": "Table",
-   "label": "Menu",
-   "options": "EFE Day Menu Meal Starch",
-   "reqd": 1
+   "fetch_from": "meal_package.short_title",
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 15:18:03.301286",
+ "modified": "2024-08-28 15:48:07.154123",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
- "name": "EFE Day Menu",
+ "name": "EFE Package Unit",
  "owner": "Administrator",
  "permissions": [
   {
@@ -67,5 +62,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "date"
+ "title_field": "title"
 }

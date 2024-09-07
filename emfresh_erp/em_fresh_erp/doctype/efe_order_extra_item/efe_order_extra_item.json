@@ -8,8 +8,8 @@
  "field_order": [
   "extra",
   "quantity",
-  "duration",
-  "price"
+  "unit_price",
+  "total_price"
  ],
  "fields": [
   {
@@ -28,25 +28,24 @@
    "label": "Quantity"
   },
   {
-   "fieldname": "duration",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Duration",
-   "options": "Day\nWeek\nMonth"
+   "fieldname": "total_price",
+   "fieldtype": "Currency",
+   "label": "Total Price",
+   "precision": "0"
   },
   {
    "fetch_from": "extra.price",
-   "fieldname": "price",
+   "fieldname": "unit_price",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Price",
+   "label": "Unit Price",
    "precision": "0"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-08 14:55:45.318435",
+ "modified": "2024-08-28 17:19:03.272250",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
  "name": "EFE Order Extra Item",

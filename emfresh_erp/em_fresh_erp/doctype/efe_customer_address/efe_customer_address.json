@@ -1,76 +1,76 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-07-14 22:41:47.906763",
+ "creation": "2024-08-28 14:11:32.294051",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "title",
-  "short_title",
-  "description",
-  "size",
-  "duration",
-  "meals_per_day"
+  "customer",
+  "phone_number",
+  "no_street",
+  "ward",
+  "district",
+  "address"
  ],
  "fields": [
   {
-   "fieldname": "title",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer ",
+   "options": "EFE Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "no_street",
    "fieldtype": "Data",
    "in_filter": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Title",
+   "label": "No. Street",
    "reqd": 1
   },
   {
-   "fieldname": "short_title",
+   "fieldname": "ward",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Ward",
+   "options": "EFE Ward",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "EFE District",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer.phone_number",
+   "fieldname": "phone_number",
    "fieldtype": "Data",
-   "in_filter": 1,
    "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Short Title",
-   "reqd": 1
+   "label": "Phone Number",
+   "read_only": 1
   },
   {
-   "fieldname": "description",
-   "fieldtype": "Small Text",
-   "label": "Description"
-  },
-  {
-   "fieldname": "meals_per_day",
-   "fieldtype": "Select",
-   "in_filter": 1,
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Meals Per Day",
-   "options": "1\n2\n3",
-   "reqd": 1
-  },
-  {
-   "fieldname": "duration",
-   "fieldtype": "Select",
-   "in_filter": 1,
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Duration",
-   "options": "Week\nMonth",
-   "reqd": 1
-  },
-  {
-   "fieldname": "size",
-   "fieldtype": "Select",
-   "in_filter": 1,
-   "label": "Size",
-   "options": "M\nL",
-   "reqd": 1
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 15:01:57.428351",
+ "modified": "2024-08-28 17:45:59.346594",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
- "name": "EFE Meal Package",
+ "name": "EFE Customer Address",
  "owner": "Administrator",
  "permissions": [
   {
@@ -90,5 +90,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "short_title"
+ "title_field": "address"
 }

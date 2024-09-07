@@ -6,9 +6,9 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "nick_name",
   "full_name",
   "phone_number",
-  "email",
   "special_note",
   "eating_utensils_note",
   "status"
@@ -20,8 +20,7 @@
    "in_filter": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Full Name",
-   "reqd": 1
+   "label": "Full Name"
   },
   {
    "fieldname": "phone_number",
@@ -33,21 +32,18 @@
    "reqd": 1
   },
   {
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "label": "Email"
-  },
-  {
    "fieldname": "special_note",
    "fieldtype": "Small Text",
    "in_list_view": 1,
    "label": "Special Food Note"
   },
   {
+   "default": "-",
    "fieldname": "eating_utensils_note",
-   "fieldtype": "Small Text",
+   "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Eating Utensils Note"
+   "label": "Eating Utensils Note",
+   "options": "KH\u00d4NG\nCh\u1ec9 DC\nCh\u1ec9 Kh\u0103n\n-"
   },
   {
    "fieldname": "status",
@@ -55,11 +51,20 @@
    "label": "Status",
    "options": "Active\nInactive",
    "reqd": 1
+  },
+  {
+   "fieldname": "nick_name",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Nick Name",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-08 14:54:29.619596",
+ "modified": "2024-08-10 11:31:20.138245",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
  "name": "EFE Customer",
@@ -82,5 +87,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "full_name"
+ "title_field": "nick_name"
 }

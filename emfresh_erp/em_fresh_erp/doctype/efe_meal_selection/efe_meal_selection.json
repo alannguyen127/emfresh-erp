@@ -1,53 +1,43 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-08-08 17:36:25.393311",
+ "creation": "2024-08-19 23:29:10.377467",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "week_menu",
-  "date",
-  "section_break_vcle",
-  "menu"
+  "title",
+  "order",
+  "day_menu"
  ],
  "fields": [
   {
-   "fieldname": "date",
-   "fieldtype": "Date",
-   "in_filter": 1,
+   "fieldname": "title",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Date",
+   "label": "Title",
    "reqd": 1
   },
   {
-   "fieldname": "week_menu",
+   "fieldname": "order",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_preview": 1,
-   "in_standard_filter": 1,
-   "label": "Week Menu",
-   "options": "EFE Week Menu",
+   "label": "Order",
+   "options": "EFE Order",
    "reqd": 1
   },
   {
-   "fieldname": "section_break_vcle",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "menu",
-   "fieldtype": "Table",
-   "label": "Menu",
-   "options": "EFE Day Menu Meal Starch",
-   "reqd": 1
+   "fieldname": "day_menu",
+   "fieldtype": "Link",
+   "label": "Day Menu",
+   "options": "EFE Day Menu"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 15:18:03.301286",
+ "modified": "2024-08-28 16:07:36.568474",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
- "name": "EFE Day Menu",
+ "name": "EFE Meal Selection",
  "owner": "Administrator",
  "permissions": [
   {
@@ -67,5 +57,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "date"
+ "title_field": "title"
 }

@@ -1,16 +1,16 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
- "creation": "2024-07-14 22:41:47.906763",
+ "creation": "2024-07-14 22:25:53.353910",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "title",
   "short_title",
   "description",
-  "size",
-  "duration",
-  "meals_per_day"
+  "meal_box_list",
+  "nutritional_info"
  ],
  "fields": [
   {
@@ -28,49 +28,37 @@
    "in_filter": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Short Title",
-   "reqd": 1
+   "label": "Short Title"
   },
   {
    "fieldname": "description",
    "fieldtype": "Small Text",
+   "in_list_view": 1,
    "label": "Description"
   },
   {
-   "fieldname": "meals_per_day",
-   "fieldtype": "Select",
+   "fieldname": "meal_box_list",
+   "fieldtype": "Link",
    "in_filter": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Meals Per Day",
-   "options": "1\n2\n3",
+   "label": "Meal Category",
+   "options": "EFE Meal Category",
    "reqd": 1
   },
   {
-   "fieldname": "duration",
-   "fieldtype": "Select",
-   "in_filter": 1,
+   "fieldname": "nutritional_info",
+   "fieldtype": "Small Text",
    "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Duration",
-   "options": "Week\nMonth",
-   "reqd": 1
-  },
-  {
-   "fieldname": "size",
-   "fieldtype": "Select",
-   "in_filter": 1,
-   "label": "Size",
-   "options": "M\nL",
-   "reqd": 1
+   "label": "Nutritional Info"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 15:01:57.428351",
+ "modified": "2024-08-28 14:09:31.986953",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
- "name": "EFE Meal Package",
+ "name": "EFE Meal",
  "owner": "Administrator",
  "permissions": [
   {
@@ -90,5 +78,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "short_title"
+ "title_field": "title"
 }

@@ -1,11 +1,12 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-07-31 22:18:26.977132",
+ "creation": "2024-08-28 14:41:57.125579",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "title",
+  "starch_category",
   "description"
  ],
  "fields": [
@@ -23,14 +24,24 @@
    "fieldtype": "Small Text",
    "in_list_view": 1,
    "label": "Description"
+  },
+  {
+   "fieldname": "starch_category",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Starch Category",
+   "options": "EFE Starch Category",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-08 14:55:53.555396",
+ "modified": "2024-08-28 14:52:47.228146",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
- "name": "EFE Meal Box List",
+ "name": "EFE Starch Portion",
  "owner": "Administrator",
  "permissions": [
   {

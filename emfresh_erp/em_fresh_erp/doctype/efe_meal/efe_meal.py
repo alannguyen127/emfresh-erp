@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class EFEDayMenuMealBox(Document):
+class EFEMeal(Document):
 	pass

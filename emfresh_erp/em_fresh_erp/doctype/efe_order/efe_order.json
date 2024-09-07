@@ -6,33 +6,25 @@
  "engine": "InnoDB",
  "field_order": [
   "column_break_phws",
+  "customer_nick_name",
   "customer_full_name",
+  "phone_number",
   "order_date",
-  "total_amount",
+  "delivery_address",
   "order_status",
-  "order_note",
+  "payment_status",
+  "total_amount",
   "order_meal_package",
   "order_extra_item",
-  "payment_status",
-  "delivery_address",
-  "additional_delivery_address",
-  "meal_box_selection"
+  "shipping_fee",
+  "order_note",
+  "shipping_note"
  ],
  "fields": [
   {
    "fieldname": "column_break_phws",
    "fieldtype": "Column Break",
    "options": "EFE "
-  },
-  {
-   "fieldname": "customer_full_name",
-   "fieldtype": "Link",
-   "in_filter": 1,
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Customer Full Name",
-   "options": "EFE Customer",
-   "reqd": 1
   },
   {
    "fieldname": "order_date",
@@ -42,6 +34,7 @@
    "reqd": 1
   },
   {
+   "bold": 1,
    "fieldname": "total_amount",
    "fieldtype": "Currency",
    "in_filter": 1,
@@ -49,7 +42,7 @@
    "in_standard_filter": 1,
    "label": "Total Amount",
    "precision": "0",
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "order_status",
@@ -78,8 +71,7 @@
    "fieldname": "order_extra_item",
    "fieldtype": "Table",
    "label": "Order Extra Item",
-   "options": "EFE Order Extra Item",
-   "reqd": 1
+   "options": "EFE Order Extra Item"
   },
   {
    "fieldname": "payment_status",
@@ -88,7 +80,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Payment Status",
-   "options": "Paid\nNot yet\nDeffered Payment",
+   "options": "COD\nPaid\nNot yet\nDeffered Payment",
    "reqd": 1
   },
   {
@@ -97,27 +89,56 @@
    "in_list_view": 1,
    "in_preview": 1,
    "label": "Delivery Address",
-   "options": "EFE Delivery Address",
+   "options": "EFE Customer Address",
    "reqd": 1
   },
   {
-   "fieldname": "additional_delivery_address",
-   "fieldtype": "Link",
+   "fetch_from": "customer_nick_name.phone_number",
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "in_preview": 1,
-   "label": "Additional Delivery Address",
-   "options": "EFE Delivery Address"
+   "in_standard_filter": 1,
+   "label": "Phone Number",
+   "read_only": 1
   },
   {
-   "fieldname": "meal_box_selection",
-   "fieldtype": "Table",
-   "label": "Meal Box Selection",
-   "options": "EFE Meal Box Selection"
+   "fieldname": "customer_nick_name",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer Nick Name",
+   "options": "EFE Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer_nick_name.full_name",
+   "fieldname": "customer_full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Full Name",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "shipping_note",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Shipping Note"
+  },
+  {
+   "fieldname": "shipping_fee",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Shipping Fee",
+   "precision": "0",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-09 01:39:03.276956",
+ "modified": "2024-08-28 19:59:50.602914",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
  "name": "EFE Order",
@@ -140,5 +161,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "customer_full_name"
+ "title_field": "customer_nick_name"
 }
