@@ -8,7 +8,11 @@
  "field_order": [
   "nick_name",
   "full_name",
+  "gender",
   "phone_number",
+  "address_1",
+  "address_2",
+  "address_3",
   "special_note",
   "eating_utensils_note",
   "status"
@@ -60,11 +64,46 @@
    "in_standard_filter": 1,
    "label": "Nick Name",
    "reqd": 1
+  },
+  {
+   "fieldname": "address_2",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Address 2"
+  },
+  {
+   "fieldname": "address_3",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Address 3"
+  },
+  {
+   "fieldname": "address_1",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Address 1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gender",
+   "options": "Male\nFemale\nNo info",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-10 11:31:20.138245",
+ "modified": "2024-10-08 22:51:58.128865",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
  "name": "EFE Customer",

@@ -9,8 +9,10 @@
   "short_title",
   "description",
   "size",
+  "package",
   "duration",
-  "meals_per_day"
+  "meals_per_day",
+  "price"
  ],
  "fields": [
   {
@@ -63,11 +65,29 @@
    "label": "Size",
    "options": "M\nL",
    "reqd": 1
+  },
+  {
+   "fieldname": "package",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "label": "Package",
+   "options": "Eatclean\nSlimfit\nProtein",
+   "reqd": 1
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Price",
+   "precision": "0",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 15:01:57.428351",
+ "modified": "2024-10-05 15:20:53.352125",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
  "name": "EFE Meal Package",

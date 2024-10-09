@@ -4,6 +4,11 @@ app_publisher = "Nghiem Nguyen"
 app_description = "Enterprise Resource Planning for Em Fresh "
 app_email = "huannghiem2711@gmail.com"
 app_license = "apache-2.0"
+doc_events = {
+    "EFE Customer": {
+        "get_customers": "emfresh_erp.em_fresh_erp.api.customer.customer.get_customers"
+    }
+}
 # required_apps = []
 
 # Includes in <head>
