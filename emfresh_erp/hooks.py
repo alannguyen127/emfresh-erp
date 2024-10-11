@@ -6,8 +6,17 @@ app_email = "huannghiem2711@gmail.com"
 app_license = "apache-2.0"
 doc_events = {
     "EFE Customer": {
-        "get_customers": "emfresh_erp.em_fresh_erp.api.customer.customer.get_customers"
-    }
+        "get_customers": "emfresh_erp.em_fresh_erp.api.customer.customer.get_customers",
+        "create_customer": "emfresh_erp.em_fresh_erp.api.customer.customer.create_customer",
+        "get_customer_detail": "emfresh_erp.em_fresh_erp.api.customer.customer.get_customer_detail",
+    },
+    "EFE Meal Package": {
+        "get_meals": "emfresh_erp.em_fresh_erp.api.meal_package.meal_package.get_meals"
+    },
+    "EFE Order": {
+        "get_orders": "emfresh_erp.em_fresh_erp.api.order.order.get_orders"
+    },
+
 }
 # required_apps = []
 

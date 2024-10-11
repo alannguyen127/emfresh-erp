@@ -7,17 +7,16 @@
  "field_order": [
   "column_break_phws",
   "customer_nick_name",
-  "customer_full_name",
   "phone_number",
+  "customer_full_name",
   "order_date",
-  "delivery_address",
   "order_status",
   "payment_status",
+  "order_note",
+  "column_break_xbpk",
   "total_amount",
   "order_meal_package",
-  "order_extra_item",
   "shipping_fee",
-  "order_note",
   "shipping_note"
  ],
  "fields": [
@@ -68,12 +67,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "order_extra_item",
-   "fieldtype": "Table",
-   "label": "Order Extra Item",
-   "options": "EFE Order Extra Item"
-  },
-  {
    "fieldname": "payment_status",
    "fieldtype": "Select",
    "in_filter": 1,
@@ -81,15 +74,6 @@
    "in_standard_filter": 1,
    "label": "Payment Status",
    "options": "COD\nPaid\nNot yet\nDeffered Payment",
-   "reqd": 1
-  },
-  {
-   "fieldname": "delivery_address",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_preview": 1,
-   "label": "Delivery Address",
-   "options": "EFE Customer Address",
    "reqd": 1
   },
   {
@@ -118,8 +102,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Customer Full Name",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "shipping_note",
@@ -134,11 +117,14 @@
    "label": "Shipping Fee",
    "precision": "0",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_xbpk",
+   "fieldtype": "Column Break"
   }
  ],
- "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 19:59:50.602914",
+ "modified": "2024-10-09 17:59:50.510612",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
  "name": "EFE Order",

@@ -24,12 +24,6 @@ frappe.ui.form.on("EFE Order Meal Package", {
     calculate_total_amount(frm);
   },
 });
-frappe.ui.form.on("EFE Order Extra Item", {
-  // Triggered when a field changes
-  total_price: function (frm, cdt, cdn) {
-    calculate_total_amount(frm);
-  },
-});
 
 // Hàm tính tổng số tiền từ các bảng con
 function calculate_total_amount(frm) {
@@ -41,9 +35,6 @@ function calculate_total_amount(frm) {
   });
 
   // Tổng giá trị trong bảng con Order Extra Item
-  frm.doc.order_extra_item.forEach(function (row) {
-    total_amount += row.total_price || 0; // Đảm bảo giá trị tồn tại, nếu không thì là 0
-  });
 
   total_amount += frm.doc.shipping_fee || 0;
   // Cập nhật trường Total Amount với tổng số tiền đã tính
@@ -92,28 +83,28 @@ frappe.ui.form.on("EFE Order Meal Package", {
 //   }
 //   return 0;
 // }
-frappe.ui.form.on("EFE Order Extra Item", {
-  // Triggered when a field changes
+// frappe.ui.form.on("EFE Order Extra Item", {
+//   // Triggered when a field changes
 
-  quantity: function (frm, cdt, cdn) {
-    let row = locals[cdt][cdn];
-    if (row.unit_price) {
-      let total_price = row.unit_price * row.quantity;
-      frappe.model.set_value(cdt, cdn, "total_price", total_price);
-    }
-  },
-  unit_price: function (frm, cdt, cdn) {
-    let row = locals[cdt][cdn];
-    if (row.quantity) {
-      let total_price = row.unit_price * row.quantity;
-      frappe.model.set_value(cdt, cdn, "total_price", total_price);
-    }
-  },
+//   quantity: function (frm, cdt, cdn) {
+//     let row = locals[cdt][cdn];
+//     if (row.unit_price) {
+//       let total_price = row.unit_price * row.quantity;
+//       frappe.model.set_value(cdt, cdn, "total_price", total_price);
+//     }
+//   },
+//   unit_price: function (frm, cdt, cdn) {
+//     let row = locals[cdt][cdn];
+//     if (row.quantity) {
+//       let total_price = row.unit_price * row.quantity;
+//       frappe.model.set_value(cdt, cdn, "total_price", total_price);
+//     }
+//   },
 
-  extra: function (frm, cdt, cdn) {
-    let row = locals[cdt][cdn];
-    let quantity = row.quantity;
-    quantity = 0;
-    frappe.model.set_value(cdt, cdn, "quantity", quantity);
-  },
-});
+//   extra: function (frm, cdt, cdn) {
+//     let row = locals[cdt][cdn];
+//     let quantity = row.quantity;
+//     quantity = 0;
+//     frappe.model.set_value(cdt, cdn, "quantity", quantity);
+//   },
+// });
