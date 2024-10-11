@@ -9,6 +9,7 @@ doc_events = {
         "get_customers": "emfresh_erp.em_fresh_erp.api.customer.customer.get_customers",
         "create_customer": "emfresh_erp.em_fresh_erp.api.customer.customer.create_customer",
         "get_customer_detail": "emfresh_erp.em_fresh_erp.api.customer.customer.get_customer_detail",
+        "update_customer": "emfresh_erp.em_fresh_erp.api.customer.customer.update_customer",
     },
     "EFE Meal Package": {
         "get_meals": "emfresh_erp.em_fresh_erp.api.meal_package.meal_package.get_meals"

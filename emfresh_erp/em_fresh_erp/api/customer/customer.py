@@ -54,3 +54,35 @@ def create_customer(nick_name, full_name, gender, address_1, status, phone_numbe
             "status": "error",
             "message": str(e)
         }
+    
+@frappe.whitelist() 
+def update_customer(customer_id, **kwargs):
+    try:
+   
+        customer_doc = frappe.get_doc("EFE Customer", customer_id)
+        
+
+        for key, value in kwargs.items():
+            if key in customer_doc.as_dict():
+                customer_doc.set(key, value)
+
+       
+        customer_doc.save()
+
+        return {
+            "status": "success",
+            "message": "Customer updated successfully",
+            "customer": customer_doc.as_dict()
+        }
+
+    except frappe.DoesNotExistError:
+    
+        frappe.throw(f"Customer with ID {customer_id} does not exist")
+    
+    except Exception as e:
+
+        frappe.log_error(message=str(e), title="Customer Update Error")
+        return {
+            "status": "error",
+            "message": f"An error occurred: {str(e)}"
+        }
