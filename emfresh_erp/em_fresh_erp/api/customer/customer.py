@@ -94,22 +94,35 @@ def get_customer_gender_data():
     Trả về tổng số khách hàng, số khách hàng là Nam và Nữ
     """
 
-    # Query đếm tổng số khách hàng
+
     total_customers = frappe.db.sql("""SELECT COUNT(*) FROM `tabEFE Customer`""")[0][0]
 
-    # Query đếm số khách hàng là Nam
+
     male_customers = frappe.db.sql("""SELECT COUNT(*) FROM `tabEFE Customer` WHERE gender = 'Male'""")[0][0]
 
-    # Query đếm số khách hàng là Nữ
+  
     female_customers = frappe.db.sql("""SELECT COUNT(*) FROM `tabEFE Customer` WHERE gender = 'Female'""")[0][0]
     
-    # Query đếm số khách hàng là Nữ
+ 
     no_info_customers = frappe.db.sql("""SELECT COUNT(*) FROM `tabEFE Customer` WHERE gender = 'No Info'""")[0][0]
 
-    # Trả về dữ liệu dưới dạng JSON
+
     return {
         "total_customers": total_customers,
         "male_customers": male_customers,
         "female_customers": female_customers,
         "no_info_customers": no_info_customers,
     }
+
+@frappe.whitelist()  
+def delete_customer(customer_id):
+    try:
+        # Check if the customer exists
+        if frappe.db.exists("EFE Customer", customer_id):
+            frappe.delete_doc("EFE Customer", customer_id)  # Delete the customer
+            frappe.db.commit()  # Commit the transaction
+            return {"status": "success", "message": f"Customer deleted successfully."}
+        else:
+            return {"status": "error", "message": "Customer not found."}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
