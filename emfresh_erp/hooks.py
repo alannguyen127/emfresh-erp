@@ -12,14 +12,19 @@ doc_events = {
         "update_customer": "emfresh_erp.em_fresh_erp.api.customer.customer.update_customer",
         "delete_customer": "emfresh_erp.em_fresh_erp.api.customer.customer.delete_customer",
         "get_customer_gender_data": "emfresh_erp.em_fresh_erp.api.customer.customer.get_customer_gender_data",
-        "get_sales_data": "emfresh_erp.em_fresh_erp.api.order.order.get_sales_data_by_date",
+        
     },
     "EFE Meal Package": {
         "get_meals": "emfresh_erp.em_fresh_erp.api.meal_package.meal_package.get_meals"
     },
     "EFE Order": {
-        "get_orders": "emfresh_erp.em_fresh_erp.api.order.order.get_orders"
+        "get_orders": "emfresh_erp.em_fresh_erp.api.order.order.get_orders",
+        "get_sales_data": "emfresh_erp.em_fresh_erp.api.order.order.get_sales_data_by_date",
+        "create_order": "emfresh_erp.em_fresh_erp.api.order.order.create_order",
     },
+    "User": {
+      "change_password": "emfresh_erp.em_fresh_erp.api.user.user.change_password"
+    }
 
 }
 # required_apps = []

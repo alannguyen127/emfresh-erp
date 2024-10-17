@@ -17,7 +17,7 @@
    "fieldtype": "Link",
    "in_filter": 1,
    "in_list_view": 1,
-   "label": "Package Unit",
+   "label": "Meal Package",
    "options": "EFE Meal Package",
    "reqd": 1
   },
@@ -48,7 +48,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-10-09 17:49:49.123293",
+ "modified": "2024-10-14 15:58:03.149057",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
  "name": "EFE Order Meal Package",
