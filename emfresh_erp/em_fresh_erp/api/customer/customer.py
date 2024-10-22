@@ -114,6 +114,29 @@ def get_customer_gender_data():
         "no_info_customers": no_info_customers,
     }
 
+@frappe.whitelist()
+def get_customer_status_data():
+    """
+    Trả về tổng số khách hàng, số khách hàng active và inactive
+    """
+
+
+    total_customers = frappe.db.sql("""SELECT COUNT(*) FROM `tabEFE Customer`""")[0][0]
+
+
+    total_active_customers = frappe.db.sql("""SELECT COUNT(*) FROM `tabEFE Customer` WHERE status = 'Active'""")[0][0]
+
+  
+    total_inactive_customers = frappe.db.sql("""SELECT COUNT(*) FROM `tabEFE Customer` WHERE status = 'Inactive'""")[0][0]
+    
+
+
+    return {
+        "total_customers": total_customers,
+        "total_active_customers": total_active_customers,
+        "total_inactive_customers": total_inactive_customers,
+    }   
+
 @frappe.whitelist()  
 def delete_customer(customer_id):
     try:
