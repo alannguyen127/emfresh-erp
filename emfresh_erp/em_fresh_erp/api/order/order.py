@@ -39,9 +39,6 @@ def get_sales_data_by_date(start_date, end_date):
             "message": "Start Date and End Date are required",
             "sales_data": []
         }
-
-  
-  
     start_date = getdate(start_date)
     end_date = getdate(end_date)
     
@@ -59,7 +56,6 @@ def get_sales_data_by_date(start_date, end_date):
         ORDER BY order_date ASC
     """, (start_date, adjusted_end_date), as_dict=True)
     
- 
     return {
         "sales_data": sales_data
     }
@@ -77,7 +73,6 @@ def get_total_order_data_by_date(start_date, end_date):
     start_date = getdate(start_date)
     end_date = getdate(end_date)
     
-  
     adjusted_end_date = add_days(end_date, 1)
     
     total_order_data = frappe.db.sql("""
@@ -95,40 +90,43 @@ def get_total_order_data_by_date(start_date, end_date):
         "total_order_data": total_order_data
     }
 
+
 @frappe.whitelist()
 def get_revenue_week_and_month():
-    # Lấy ngày hiện tại
+   
     current_date = getdate(today())
-    
-    # Tính ngày bắt đầu của tuần (thứ 2)
+
     week_start = current_date - timedelta(days=current_date.weekday())  # Monday
 
-    # Tính ngày cuối cùng của hôm nay (23:59:59)
     end_of_today = current_date + timedelta(days=1) - timedelta(seconds=1)  # 23:59:59 của ngày hôm nay
     
-    # Tính ngày bắt đầu và kết thúc của tháng
     month_start = get_first_day(current_date)
-    
-    # Tính doanh thu tuần này (từ thứ 2 đến ngày hôm nay)
-    revenue_week = frappe.db.sql("""
-        SELECT 
-            SUM(total_amount) as revenue_week
-        FROM `tabEFE Order`
-        WHERE order_date >= %s AND order_date <= %s
-    """, (week_start, end_of_today), as_dict=True)
-    
+    try: 
+      revenue_week = frappe.db.sql("""
+          SELECT 
+              SUM(total_amount) as revenue_week
+          FROM `tabEFE Order`
+          WHERE order_date >= %s AND order_date <= %s
+      """, (week_start, end_of_today), as_dict=True)
+      
     # Tính doanh thu tháng này (từ ngày 1 đến ngày hiện tại)
-    revenue_month = frappe.db.sql("""
-        SELECT 
-            SUM(total_amount) as revenue_month
-        FROM `tabEFE Order`
-        WHERE order_date >= %s AND order_date <= %s
-    """, (month_start, current_date), as_dict=True)
+      revenue_month = frappe.db.sql("""
+          SELECT 
+              SUM(total_amount) as revenue_month
+          FROM `tabEFE Order`
+          WHERE order_date >= %s AND order_date <= %s
+      """, (month_start, current_date), as_dict=True)
 
-    return {
-        "revenue_week": revenue_week[0].get("revenue_week") or 0,
-        "revenue_month": revenue_month[0].get("revenue_month") or 0
-    }
+      return {
+          "revenue_week": revenue_week[0].get("revenue_week") or 0,
+          "revenue_month": revenue_month[0].get("revenue_month") or 0
+      }
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": str(e)
+        }
+
 
 class EFEOrder(Document):
     def before_save(self):
@@ -254,3 +252,4 @@ def delete_order(order_id):
             return {"status": "error", "message": "Order not found."}
     except Exception as e:
         return {"status": "error", "message": str(e)}
+

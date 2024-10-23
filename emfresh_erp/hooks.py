@@ -21,6 +21,7 @@ doc_events = {
         "get_orders": "emfresh_erp.em_fresh_erp.api.order.order.get_orders",
         "get_sales_data": "emfresh_erp.em_fresh_erp.api.order.order.get_sales_data_by_date",
         "create_order": "emfresh_erp.em_fresh_erp.api.order.order.create_order",
+        "count_order_by_date": "emfresh_erp.em_fresh_erp.api.order.order.count_order_by_date"
     },
     "User": {
       "change_password": "emfresh_erp.em_fresh_erp.api.user.user.change_password"
