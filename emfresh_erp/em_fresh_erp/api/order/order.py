@@ -78,9 +78,8 @@ def get_total_order_data_by_date(start_date, end_date):
     total_order_data = frappe.db.sql("""
         SELECT 
             COUNT(name) as total_orders,
-            SUM(CASE WHEN payment_status = 'COD' THEN 1 ELSE 0 END) as cod_orders,
             SUM(CASE WHEN payment_status = 'Paid' THEN 1 ELSE 0 END) as paid_orders,
-            SUM(CASE WHEN payment_status = 'Not yet' THEN 1 ELSE 0 END) as not_yet_orders
+            SUM(CASE WHEN payment_status = 'Unpaid' THEN 1 ELSE 0 END) as unpaid_orders
         FROM `tabEFE Order`
         WHERE 
             order_date >= %s AND order_date < %s
@@ -226,10 +225,11 @@ def get_order_detail(order_id):
 
         if customer_name:
             # Fetch the nick_name from EFE Customer using the customer_nick_name
-            customer_info = frappe.get_value("EFE Customer", customer_name, "nick_name")
+            customer_info = frappe.get_value("EFE Customer", customer_name, ["nick_name", "name"], as_dict=True)
             
             # Assign the nick_name to the customer_nick_name field in the order detail
-            order_data["customer_nick_name"] = customer_info
+            order_data["customer_nick_name"] = customer_info["nick_name"]
+            order_data["customer_id"] = customer_info["name"]
         return {
             "status": "success",
             "order_detail": order_data
@@ -253,3 +253,35 @@ def delete_order(order_id):
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
+
+@frappe.whitelist() 
+def update_order(order_id, **kwargs):
+    try:
+   
+        order_doc = frappe.get_doc("EFE Order", order_id)
+        
+
+        for key, value in kwargs.items():
+            if key in order_doc.as_dict():
+                order_doc.set(key, value)
+
+       
+        order_doc.save()
+
+        return {
+            "status": "success",
+            "message": "Order updated successfully",
+            "order": order_doc.as_dict()
+        }
+
+    except frappe.DoesNotExistError:
+    
+        frappe.throw(f"Order with ID {order_id} does not exist")
+    
+    except Exception as e:
+
+        frappe.log_error(message=str(e), title="Order Update Error")
+        return {
+            "status": "error",
+            "message": f"An error occurred: {str(e)}"
+        }

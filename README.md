@@ -5,7 +5,7 @@ Chikorita ERP app is a Frappe app that provides a web interface for restaurant's
 Backend infomation:
 
 - Built with Frappe Framework
-- Code: Python
+- Language: Python
 - DB: MariaDB
 
 ### Dev Setup:

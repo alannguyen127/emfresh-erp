@@ -67,7 +67,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Payment Status",
-   "options": "COD\nPaid\nNot yet",
+   "options": "Paid\nUnpaid",
    "reqd": 1
   },
   {
@@ -122,7 +122,7 @@
   }
  ],
  "links": [],
- "modified": "2024-10-17 22:37:18.853615",
+ "modified": "2024-10-29 10:28:34.307399",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
  "name": "EFE Order",
