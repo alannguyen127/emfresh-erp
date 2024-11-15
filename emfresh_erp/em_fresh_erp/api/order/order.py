@@ -31,6 +31,7 @@ def get_orders():
             "message": str(e)
         }
 
+
 @frappe.whitelist()
 def get_sales_data_by_date(start_date, end_date):
     if not start_date or not end_date:
@@ -285,3 +286,33 @@ def update_order(order_id, **kwargs):
             "status": "error",
             "message": f"An error occurred: {str(e)}"
         }
+    
+
+@frappe.whitelist()
+def get_order_quantity_by_date(start_date, end_date):
+    if not start_date or not end_date:
+        return {
+            "status": "error",
+            "message": "Start Date and End Date are required",
+            "order_count_data": []
+        }
+    start_date = getdate(start_date)
+    end_date = getdate(end_date)
+    
+  
+    adjusted_end_date = add_days(end_date, 1)
+    
+    order_count_data = frappe.db.sql("""
+        SELECT 
+            DATE(order_date) as order_date,
+            COUNT(*) as total_orders
+        FROM `tabEFE Order`
+        WHERE 
+            order_date >= %s AND order_date < %s
+        GROUP BY DATE(order_date)
+        ORDER BY order_date ASC
+    """, (start_date, adjusted_end_date), as_dict=True)
+    
+    return {
+        "order_count_data": order_count_data
+    }

@@ -63,3 +63,11 @@ def create_user_account(first_name, email, password, confirm_password, role):
             "status": "error",
             "message": str(e)
         }
+
+@frappe.whitelist(allow_guest=False)
+def get_user_role():
+    user = frappe.session.user
+    if user != "Guest":
+        efe_user = frappe.get_value("EFE User", {"user": user}, "role")
+        return {"role": efe_user}
+    return {"error": "User not logged in"}

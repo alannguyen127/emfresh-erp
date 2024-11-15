@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:user",
  "creation": "2024-10-14 10:34:43.219969",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -16,7 +17,8 @@
    "in_list_view": 1,
    "label": "User",
    "options": "User",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fetch_from": "user.full_name",
@@ -36,10 +38,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-14 10:37:20.274152",
+ "modified": "2024-11-08 15:59:06.328822",
  "modified_by": "Administrator",
  "module": "Em Fresh ERP",
  "name": "EFE User",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
